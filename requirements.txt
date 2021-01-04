@@ -27,6 +27,7 @@ dateparser
 matplotlib
 mplcyberpunk
 
+tests
 # Fuzzy matching and LoL IDs tools
 lol-id-tools
 

@@ -100,10 +100,18 @@ class QueueCog(commands.Cog, name="Queue"):
                 with session_scope() as session:
                     session.expire_on_commit = False
                     game = session.merge(game)  # This gets us the game ID
+                
+                category = await ctx.guild.create_category('Game-%s' % str(game))
+                text_channel = await ctx.guild.create_text_channel('Chat', category=category)
+                blue_side = await ctx.guid.create_voice_channel('Blue Side', category=category)
+                red_side = await ctx.guid.create_voice_channel('Red Side', category=category)
+
 
                 queue_channel_handler.mark_queue_related_message(
                     await ctx.send(embed=game.get_embed("GAME_ACCEPTED"),)
                 )
+
+
 
             elif ready is False:
                 # We remove the player who cancelled

@@ -5,7 +5,7 @@ version: "3.8"
 
 services:
   inhouse_bot:
-    image: mrtolkien/inhouse_bot:beta
+    image: vini/inhouse_bot
     build:
       context: .
     env_file: # Using in env file in dev to hide my bot key and such
