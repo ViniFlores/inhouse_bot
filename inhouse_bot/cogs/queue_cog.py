@@ -105,7 +105,7 @@ class QueueCog(commands.Cog, name="Queue"):
                     session.expire_on_commit = False
                     game = session.merge(game)  # This gets us the game ID
                 
-                category = await ctx.guild.create_category('⚔ Game-%s' % str(game))
+                category = await ctx.guild.create_category('⚔ Game-%s' % str(game.id))
                 text_channel = await ctx.guild.create_text_channel('chat', category=category)
                 blue_side = await ctx.guild.create_voice_channel('🔵 Blue Side', category=category)
                 red_side = await ctx.guild.create_voice_channel('🔴 Red Side', category=category)
